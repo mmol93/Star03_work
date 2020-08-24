@@ -45,7 +45,9 @@ for attack in Marine_Arr:
     if j == 1:
         dead_unit.append(attack)
 
-Marine_Arr.remove(dead_unit)
+for dead_unit_delete in dead_unit:
+    Marine_Arr.remove(dead_unit_delete)
+
 
 print(Marine_Arr)
 
