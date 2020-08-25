@@ -46,22 +46,27 @@ for attack in Marine_Arr:
         dead_unit.append(attack)
 
 for dead_unit_delete in dead_unit:
+
+    if Marine_count == 0:
+        quit()
     Marine_Arr.remove(dead_unit_delete)
 
-
-print(Marine_Arr)
-
 while i < 1:
+    print("남은 해병은 {}기입니다.".format(Marine_count))
+    dead_unit.clear()
     attack_command = input("다시 공격 ㄱㄱ? : ")
     if attack_command == "ok":
-        j = 0
-        attack.getDamaged()
-        if j == 1:
-            Marine_Arr.remove(attack)
+        for attack in Marine_Arr:
+            j = 0  # 죽은 유닛 카운트
+            attack.getDamaged()
+            if j == 1:
+                dead_unit.append(attack)
 
-    elif Marine_count <= 0:
-        print("남은 병력이 없습니다")
-        quit()
+        for dead_unit_delete in dead_unit:
+            if Marine_count == 0:
+                quit()
+            Marine_Arr.remove(dead_unit_delete)
+
 
 
 
